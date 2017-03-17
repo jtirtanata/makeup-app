@@ -4,12 +4,12 @@ from sklearn.metrics import pairwise
 import numpy as np
 
 class CommentFinder:
-    def __init__():
-        self.comment_table = pd.read_pickle('../data/text/comment_table.pkl')
-        self.sentence_table = pd.read_pickle('../data/text/df_sent.pkl')
-        self.tf_vectorizer = pickle.load(open('../data/text/tf_vectorizer.pkl', 'rb'))
-        self.nmf = pickle.load(open('../data/text/nmf.pkl', 'rb'))
-        self.topic_probs = pickle.load(open('../data/text/topic_probs.pkl', 'rb'))
+    def __init__(path='libs/data/rec'):
+        self.comment_table = pd.read_pickle(path + 'comment_table.pkl')
+        self.sentence_table = pd.read_pickle(path + 'df_sent.pkl')
+        self.tf_vectorizer = pickle.load(open(path + 'tf_vectorizer.pkl', 'rb'))
+        self.nmf = pickle.load(open(path + 'nmf.pkl', 'rb'))
+        self.topic_probs = pickle.load(open(path + 'topic_probs.pkl', 'rb'))
         self.sent_length = self.topic_probs.shape[0]
 
     def find_comment_ids(self, productid):
